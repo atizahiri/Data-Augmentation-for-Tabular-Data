@@ -1,8 +1,8 @@
-# Data Augmentation for Imbalanced Tabular Classification
+ # Data Augmentation for Imbalanced Tabular Classification
 
 ## Project Overview
 
-This repository contains the experimental implementation for the EECS 6412 research project *Baseline Evaluation of Data Augmentation for Imbalanced Tabular Classification: Toward Quality-aware Hybrid Augmentation (AQHDA)* at York University.
+This repository contains the experimental implementation for the EECS 6412 research project, *Baseline Evaluation of Data Augmentation for Imbalanced Tabular Classification: Toward Quality-aware Hybrid Augmentation (AQHDA)*, at York University.
 
 The project investigates whether synthetic tabular data improve minority-class prediction while preserving heterogeneous feature types, statistical dependencies, and relationships between features and target labels.
 
@@ -100,6 +100,5 @@ The implementation uses publicly available Python libraries, including `imbalanc
 ## Research Status
 
 This repository documents baseline experiments and preliminary development of AQHDA. Further work will investigate stronger synthetic quality controls, sample selection strategies and broader evaluation under limited-data and class-imbalance conditions.
-
 
 
