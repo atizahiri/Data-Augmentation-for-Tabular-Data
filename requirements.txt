@@ -1,1 +1,12 @@
-
+numpy
+pandas
+scipy
+scikit-learn
+imbalanced-learn
+ctgan
+xgboost
+ucimlrepo
+matplotlib
+seaborn
+torch
+optuna
