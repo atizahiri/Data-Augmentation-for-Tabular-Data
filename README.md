@@ -1,4 +1,4 @@
- # Data Augmentation for Imbalanced Tabular Classification
+# Data Augmentation for Imbalanced Tabular Classification
 
 ## Project Overview
 
@@ -23,9 +23,9 @@ Three publicly available datasets are used:
 
 | Dataset | Source |
 |---|---|
-| Bank Marketing | [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/222) |
-| Online Shoppers Purchasing Intention | [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/468) |
-| Telco Customer Churn | [Public IBM sample dataset mirror](https://raw.githubusercontent.com/Giskard-AI/examples/main/datasets/WA_Fn-UseC_-Telco-Customer-Churn.csv) |
+| Bank Marketing | https://archive.ics.uci.edu/dataset/222 |
+| Online Shoppers Purchasing Intention | https://archive.ics.uci.edu/dataset/468 |
+| Telco Customer Churn | https://raw.githubusercontent.com/Giskard-AI/examples/main/datasets/WA_Fn-UseC_-Telco-Customer-Churn.csv |
 
 ## Experimental Setup
 
@@ -59,46 +59,10 @@ Results are summarized across five seeds using means and standard deviations.
 ## Main Findings
 
 | Dataset | Best mean AP method | AP |
-|---|---|---:|
+|---|---|---|
 | Bank Marketing | No Augmentation | 0.449 |
 | Online Shoppers | No Augmentation | 0.744 |
 | Telco Churn | TVAE | 0.660 |
 
-For Telco Churn, the no-augmentation baseline achieved AP = 0.657. The TVAE difference was small, and the overlapping variability across five seeds does not establish statistically reliable improvement.
-
-These findings suggest that synthetic data generation does not automatically improve classification performance. Data validity, dependency preservation, label consistency, diversity, and downstream utility must be considered together.
-
-## AQHDA Extension
-
-AQHDA investigates quality-aware synthetic sample selection and validation-guided refinement.
-
-The preliminary implementation includes progressive sample selection and Optuna-based tuning, with final evaluation on held-out test data. These findings are exploratory rather than evidence of established improvement.
-
-## Code and Reproducibility
-
-The main notebook is:
-
-`Tabular_Augmentation_Baselines_and_AQHDA.ipynb`
-
-To run the experiments:
-
-1. Open the notebook in Google Colab.
-2. Install the required packages using `requirements.txt`, or run the notebook's installation cell.
-3. Run the cells in order with an internet connection for dataset retrieval.
-4. Review generated performance tables, quality checks and ROC plots.
-
-The implementation uses publicly available Python libraries, including `imbalanced-learn`, `ctgan`, `xgboost`, and `ucimlrepo`.
-
-## Limitations
-
-- Results are based on five repeated splits.
-- CTGAN and TVAE use a limited training budget of 30 epochs.
-- Synthetic quality metrics are proxies and do not guarantee true label correctness or preservation of higher-order dependencies.
-- Generator results may vary slightly between executions.
-- A known `TotalCharges` preprocessing issue affects interpretation of the Telco experiments and requires correction and rerunning before treating those results as fully validated.
-
-## Research Status
-
-This repository documents baseline experiments and preliminary development of AQHDA. Further work will investigate stronger synthetic quality controls, sample selection strategies and broader evaluation under limited-data and class-imbalance conditions.
-
+For Telco Churn, the no-augmentation baseline achieved AP = 0.657. The TVAE difference was small, and the overlapping variability across
 
